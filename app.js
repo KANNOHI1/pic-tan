@@ -38,6 +38,39 @@ const THEMES = [
 ];
 
 const SESSION_SIZE = 8;
+const {
+  getNextCardRevealState = (tapStage) => {
+    if (tapStage === 0) {
+      return {
+        nextStage: 1,
+        showEn: true,
+        showJa: false,
+        showRatings: false,
+        hintText: 'もういちど →',
+        consumeTap: true,
+      };
+    }
+    if (tapStage === 1) {
+      return {
+        nextStage: 2,
+        showEn: true,
+        showJa: true,
+        showRatings: true,
+        hintText: '',
+        consumeTap: true,
+      };
+    }
+    return {
+      nextStage: 2,
+      showEn: true,
+      showJa: true,
+      showRatings: true,
+      hintText: '',
+      consumeTap: false,
+    };
+  },
+  getScreenTransitionMode = (currentId, nextId) => currentId && currentId !== nextId ? 'swap' : 'enter',
+} = globalThis.PicTanUiState || {};
 const FRIENDSHIP_THRESHOLD = 10; // まちへの引っ越し条件
 
 // ── LocalStorage helpers ─────────────────────────────────────────────
@@ -184,11 +217,67 @@ const state = {
 
 // ── Screen routing ───────────────────────────────────────────────────
 
-function showScreen(id) {
-  ['partnerScreen', 'homeScreen', 'playScreen', 'completeScreen'].forEach(s => {
-    const el = document.getElementById(s);
-    if (el) el.hidden = (s !== id);
-  });
+function showScreen(nextId) {
+  const current = document.querySelector('.screen:not([hidden])');
+  const next = document.getElementById(nextId);
+  if (!next) return;
+
+  if (getScreenTransitionMode(current?.id ?? null, nextId) === 'swap' && current) {
+    current.classList.add('screen-exit');
+    current.addEventListener('animationend', () => {
+      current.hidden = true;
+      current.classList.remove('screen-exit');
+      next.hidden = false;
+      next.classList.remove('screen-enter');
+      void next.offsetWidth;
+      next.classList.add('screen-enter');
+      next.addEventListener('animationend', () => next.classList.remove('screen-enter'), { once: true });
+    }, { once: true });
+    return;
+  }
+
+  next.hidden = false;
+  next.classList.remove('screen-enter');
+  void next.offsetWidth;
+  next.classList.add('screen-enter');
+  next.addEventListener('animationend', () => next.classList.remove('screen-enter'), { once: true });
+}
+
+function replayWordReveal(el) {
+  if (!el) return;
+  el.style.animation = 'none';
+  void el.offsetWidth;
+  el.style.animation = '';
+}
+
+function animateStudyCardEntrance() {
+  const card = document.getElementById('studyCard');
+  if (!card) return;
+  card.classList.remove('card-enter');
+  void card.offsetWidth;
+  card.classList.add('card-enter');
+}
+
+function playCelebration() {
+  const container = document.querySelector('.celebration-container');
+  if (!container) return;
+  container.innerHTML = '';
+  const colors = ['#E8835A', '#FFD166', '#FF8FAB', '#A8D5A2'];
+  for (let i = 0; i < 5; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.textContent = '⭐';
+    star.style.cssText = 'left:' + (15 + i * 16) + '%; top:' + (5 + Math.random() * 20) + '%; animation-delay:' + (i * 80) + 'ms';
+    container.appendChild(star);
+  }
+  for (let i = 0; i < 20; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.cssText = 'left:' + Math.round(Math.random() * 95) + '%; animation-delay:' + Math.round(Math.random() * 1200) + 'ms; color:' + colors[i % 4];
+    c.textContent = '●';
+    container.appendChild(c);
+  }
+  setTimeout(() => { container.innerHTML = ''; }, 3600);
 }
 
 // ── Screen 1: Partner selection ──────────────────────────────────────
@@ -250,7 +339,15 @@ async function initHomeScreen() {
   const partnerId = state.partner || getPartner();
   const p = PARTNERS[partnerId];
   const theme = pickTodaysTheme();
+  state.partner = partnerId;
   state.theme = theme;
+  document.body.dataset.partner = ({
+    rabbit: 'lulu',
+    cat: 'chai',
+    dog: 'pochi',
+    penguin: 'pepe',
+    bird: 'sora',
+  }[state.partner] || state.partner);
 
   // Town image
   const residents = getResidents();
@@ -332,45 +429,54 @@ function renderCard() {
   const imageWrap = document.getElementById('cardImageWrap');
   imageWrap.innerHTML = cardImageHTML(card, state.theme.id);
 
-  // Hide text
-  document.getElementById('cardWordEn').hidden = true;
-  document.getElementById('cardWordJa').hidden = true;
-  document.getElementById('ratingWrap').hidden = true;
-  document.getElementById('tapHint').textContent = 'こたえは？';
-  document.getElementById('tapHint').hidden = false;
+  const en = document.getElementById('cardWordEn');
+  const ja = document.getElementById('cardWordJa');
+  const ratings = document.getElementById('ratingWrap');
+  const hint = document.getElementById('tapHint');
+
+  en.textContent = card.wordEN;
+  ja.textContent = card.wordJA;
+  en.hidden = true;
+  ja.hidden = true;
+  ratings.hidden = true;
+  hint.textContent = 'タップしてね →';
+  hint.hidden = false;
 
   // Tap handler
   const studyCard = document.getElementById('studyCard');
   studyCard.onclick = handleCardTap;
   studyCard.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') handleCardTap(); };
+
+  document.querySelectorAll('.btn-rating').forEach(btn => {
+    btn.onclick = () => handleRating(btn.dataset.rating === 'knew');
+  });
+
+  animateStudyCardEntrance();
 }
 
 function handleCardTap() {
-  const card = state.session[state.pos];
-  state.tapStage++;
+  const nextView = getNextCardRevealState(state.tapStage);
+  if (!nextView.consumeTap) return;
 
-  if (state.tapStage === 1) {
-    // Show English and Japanese simultaneously
-    const en = document.getElementById('cardWordEn');
-    en.textContent = card.wordEN;
-    en.hidden = false;
+  state.tapStage = nextView.nextStage;
 
-    const ja = document.getElementById('cardWordJa');
-    ja.textContent = card.wordJA;
-    ja.hidden = false;
+  const en = document.getElementById('cardWordEn');
+  const ja = document.getElementById('cardWordJa');
+  const ratings = document.getElementById('ratingWrap');
+  const hint = document.getElementById('tapHint');
 
-    document.getElementById('tapHint').hidden = true;
-    document.getElementById('ratingWrap').hidden = false;
+  en.hidden = !nextView.showEn;
+  ja.hidden = !nextView.showJa;
+  ratings.hidden = !nextView.showRatings;
+  hint.hidden = !nextView.hintText;
+  hint.textContent = nextView.hintText;
 
-    // Disable card tap
-    document.getElementById('studyCard').onclick = null;
-
-    // Rating handlers
-    document.querySelectorAll('.btn-rating').forEach(btn => {
-      btn.onclick = () => handleRating(btn.dataset.rating === 'knew');
-    });
+  if (nextView.nextStage === 1) {
+    replayWordReveal(en);
   }
-  // stage2+ は評価ボタンが処理する
+  if (nextView.nextStage === 2) {
+    replayWordReveal(ja);
+  }
 }
 
 function handleRating(knew) {
@@ -423,8 +529,10 @@ function showCompleteScreen() {
   const total = Math.min(friendship, 15);
   for (let i = 0; i < total; i++) {
     const heart = document.createElement('span');
+    heart.className = 'friend-heart';
     heart.textContent = '♡';
-    heart.style.color = 'var(--pink)';
+    heart.style.animationDelay = (i * 120) + 'ms';
+    heart.classList.add('filling');
     meter.appendChild(heart);
   }
 
@@ -442,6 +550,13 @@ function showCompleteScreen() {
     initHomeScreen();
     showScreen('homeScreen');
   };
+
+  const completeScreen = document.getElementById('completeScreen');
+  completeScreen.addEventListener('animationend', (event) => {
+    if (event.target === completeScreen && event.animationName === 'screenFadeIn') {
+      playCelebration();
+    }
+  }, { once: true });
 
   showScreen('completeScreen');
 }

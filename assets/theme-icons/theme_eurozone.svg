@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ユーロ圏テーマ">
+  <!-- Blue background circle (EU-inspired, not replica) -->
+  <circle cx="32" cy="32" r="30" fill="#2B5BE8" opacity="0.85"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#FFD700" stroke-width="1.5" opacity="0.4"/>
+
+  <!--
+    12 gold stars in a ring at radius 18.
+    Star polygon (outer R=3.5, inner r=1.4) centered at origin, rotated so point faces up.
+    Positions at angle = -π/2 + i·2π/12 = -90° + i·30°
+    Each star uses a <g transform="translate(cx,cy)"><polygon .../></g>
+
+    5-pointed star points (R=3.5, r=1.4):
+    outer: (0,-3.5), (3.5*sin72°, -3.5*cos72°)=( 3.33,-1.08), ( 3.5*sin144°,-3.5*cos144°)=(2.06, 2.83),
+           (-2.06, 2.83), (-3.33,-1.08)
+    inner: (1.4*sin36°,-1.4*cos36°)=(0.82,-1.13), (1.4*sin108°,-1.4*cos108°)=(1.33, 0.43),
+           (0, 1.4), (-1.33, 0.43), (-0.82,-1.13)
+    Interleaved: 0,-3.5 | 0.82,-1.13 | 3.33,-1.08 | 1.33,0.43 | 2.06,2.83 | 0,1.4 | -2.06,2.83 | -1.33,0.43 | -3.33,-1.08 | -0.82,-1.13
+  -->
+  <defs>
+    <polygon id="star" points="0,-3.5 0.82,-1.13 3.33,-1.08 1.33,0.43 2.06,2.83 0,1.4 -2.06,2.83 -1.33,0.43 -3.33,-1.08 -0.82,-1.13" fill="#FFD700"/>
+  </defs>
+
+  <!-- 12 stars at r=18, angles -90°, -60°, -30°, 0°, 30°, 60°, 90°, 120°, 150°, 180°, 210°, 240° -->
+  <use href="#star" transform="translate(32,14)"/>
+  <use href="#star" transform="translate(41,16.4)"/>
+  <use href="#star" transform="translate(47.6,23)"/>
+  <use href="#star" transform="translate(50,32)"/>
+  <use href="#star" transform="translate(47.6,41)"/>
+  <use href="#star" transform="translate(41,47.6)"/>
+  <use href="#star" transform="translate(32,50)"/>
+  <use href="#star" transform="translate(23,47.6)"/>
+  <use href="#star" transform="translate(16.4,41)"/>
+  <use href="#star" transform="translate(14,32)"/>
+  <use href="#star" transform="translate(16.4,23)"/>
+  <use href="#star" transform="translate(23,16.4)"/>
+
+  <!-- Center globe hint -->
+  <circle cx="32" cy="32" r="8" fill="none" stroke="#FFD700" stroke-width="1.2" opacity="0.5"/>
+  <ellipse cx="32" cy="32" rx="8" ry="3" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+</svg>
