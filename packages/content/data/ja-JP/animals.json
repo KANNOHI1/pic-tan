@@ -1,0 +1,22 @@
+[
+  {"id":"animal_cat","word_en":"cat","word_ja":"ねこ","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🐱","pictogram_prompt":"felt doll style cat character, warm diorama background"},
+  {"id":"animal_dog","word_en":"dog","word_ja":"いぬ","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🐶","pictogram_prompt":"felt doll style dog character, warm diorama background"},
+  {"id":"animal_rabbit","word_en":"rabbit","word_ja":"うさぎ","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🐰","pictogram_prompt":"felt doll style rabbit character, warm diorama background"},
+  {"id":"animal_bear","word_en":"bear","word_ja":"くま","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🐻","pictogram_prompt":"felt doll style bear character, warm diorama background"},
+  {"id":"animal_pig","word_en":"pig","word_ja":"ぶた","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🐷","pictogram_prompt":"felt doll style pig character, warm diorama background"},
+  {"id":"animal_duck","word_en":"duck","word_ja":"あひる","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🦆","pictogram_prompt":"felt doll style duck character, warm diorama background"},
+  {"id":"animal_fish","word_en":"fish","word_ja":"さかな","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🐟","pictogram_prompt":"felt doll style fish character, warm diorama background"},
+  {"id":"animal_bird","word_en":"bird","word_ja":"とり","theme":"animals","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🐦","pictogram_prompt":"felt doll style bird character, warm diorama background"},
+  {"id":"animal_lion","word_en":"lion","word_ja":"ライオン","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🦁","pictogram_prompt":"felt doll style lion character, warm diorama background"},
+  {"id":"animal_elephant","word_en":"elephant","word_ja":"ぞう","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🐘","pictogram_prompt":"felt doll style elephant character, warm diorama background"},
+  {"id":"animal_monkey","word_en":"monkey","word_ja":"さる","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🐒","pictogram_prompt":"felt doll style monkey character, warm diorama background"},
+  {"id":"animal_panda","word_en":"panda","word_ja":"パンダ","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🐼","pictogram_prompt":"felt doll style panda character, warm diorama background"},
+  {"id":"animal_giraffe","word_en":"giraffe","word_ja":"きりん","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🦒","pictogram_prompt":"felt doll style giraffe character, warm diorama background"},
+  {"id":"animal_mouse","word_en":"mouse","word_ja":"ねずみ","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🐭","pictogram_prompt":"felt doll style mouse character, warm diorama background"},
+  {"id":"animal_fox","word_en":"fox","word_ja":"きつね","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🦊","pictogram_prompt":"felt doll style fox character, warm diorama background"},
+  {"id":"animal_penguin","word_en":"penguin","word_ja":"ペンギン","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🐧","pictogram_prompt":"felt doll style penguin character, warm diorama background"},
+  {"id":"animal_koala","word_en":"koala","word_ja":"コアラ","theme":"animals","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🐨","pictogram_prompt":"felt doll style koala character, warm diorama background"},
+  {"id":"animal_tiger","word_en":"tiger","word_ja":"とら","theme":"animals","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🐯","pictogram_prompt":"felt doll style tiger character, warm diorama background"},
+  {"id":"animal_horse","word_en":"horse","word_ja":"うま","theme":"animals","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🐴","pictogram_prompt":"felt doll style horse character, warm diorama background"},
+  {"id":"animal_frog","word_en":"frog","word_ja":"かえる","theme":"animals","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🐸","pictogram_prompt":"felt doll style frog character, warm diorama background"}
+]

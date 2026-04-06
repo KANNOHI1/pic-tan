@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pic-tan: App Store Screenshot Mockups (A/B Test)</title>
+    <style>
+        :root {
+            /* Brand Colors (Felt-cute pastel palette) */
+            --bg-pastel-blue: #E8F0FC;
+            --bg-pastel-yellow: #FFF9E6;
+            --bg-pastel-pink: #FCE8E8;
+            --bg-pastel-green: #E8FCEF;
+            
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --accent-color: #FF7B00; /* Warm accent */
+            
+            --card-bg: #FFFFFF;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --device-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            background-color: #f5f7FA;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin: 0 0 10px 0;
+        }
+        
+        .header p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            max-width: 1200px;
+        }
+
+        .variant-col {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .variant-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        /* Screenshot Container (Apple App Store ratio approx 9:19.5, 300x650 for demo) */
+        .screenshot {
+            width: 320px;
+            height: 693px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: var(--device-shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        /* Top Text Area */
+        .copy-area {
+            padding: 40px 24px 20px 24px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .copy-title {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .copy-subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        /* App UI Mock Area */
+        .ui-mockup {
+            flex-grow: 1;
+            position: relative;
+            margin: 0 16px 16px 16px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-bottom: none;
+        }
+
+        /* Specific Variant Styles */
+        /* Slide 1 Pattern A (Safe/Ad-Free) */
+        .s1-a {
+            background: linear-gradient(135deg, var(--bg-pastel-blue), #ffffff);
+        }
+        .s1-a .copy-title { color: #1E4F8A; }
+        
+        /* Slide 1 Pattern B (Habit/Memory) */
+        .s1-b {
+            background: linear-gradient(135deg, var(--bg-pastel-yellow), #ffffff);
+        }
+        .s1-b .copy-title { color: #8A641E; }
+
+        /* Slide 2 Pattern A (Parent relief) */
+        .s2-a {
+            background: linear-gradient(135deg, var(--bg-pastel-pink), #ffffff);
+        }
+        .s2-a .copy-title { color: #8A1E3C; }
+
+        /* Slide 2 Pattern B (3-min spaced repetition) */
+        .s2-b {
+            background: linear-gradient(135deg, var(--bg-pastel-green), #ffffff);
+        }
+        .s2-b .copy-title { color: #1E8A4C; }
+
+
+        /* Mockup Internal Elements */
+        .mock-nav {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            border-bottom: 1px solid #eee;
+        }
+        .mock-nav-btn {
+            width: 20px; height: 20px; border-radius: 10px; background: #eee;
+        }
+        .mock-progress {
+            width: 80px; height: 8px; border-radius: 4px; background: #eee; overflow: hidden;
+        }
+        .mock-progress-bar {
+            width: 60%; height: 100%; background: #4CAF50;
+        }
+
+        /* Big Card */
+        .mock-card {
+            margin: 20px;
+            flex-grow: 1;
+            background: var(--bg-pastel-yellow);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .mock-emoji {
+            font-size: 90px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+            transform: translateY(0);
+            animation: bounce 2s infinite ease-in-out;
+        }
+        
+        .mock-emoji.bear { animation-delay: 0.5s; background: transparent; }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .mock-word-en { font-size: 28px; font-weight: bold; color: #333; margin-bottom: 4px; }
+        .mock-word-ja { font-size: 16px; color: #666; }
+
+        /* Trust Badges Mock */
+        .trust-badge {
+            position: absolute;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .trust-badge.ad-free {
+            top: 20px; right: -10px; border: 2px solid #4CAF50; color: #2E7D32; z-index: 20;
+        }
+        .trust-badge.offline {
+            bottom: 40px; left: -10px; border: 2px solid #2196F3; color: #1565C0; z-index: 20;
+        }
+
+        /* Ratings Mock */
+        .mock-ratings {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        .mock-btn-rating {
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            flex: 1;
+            text-align: center;
+        }
+        .mock-btn-orange { background: #FF9800; }
+        .mock-btn-green { background: #4CAF50; }
+
+        /* Shield Graphic */
+        .shield-graphic {
+            font-size: 60px;
+            position: absolute;
+            bottom: 60px;
+            right: 20px;
+            opacity: 0.2;
+            transform: rotate(15deg);
+        }
+
+        /* Town Mockup */
+        .mock-town {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            background: linear-gradient(to bottom, #dff0ff, #fff);
+        }
+        .town-level {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .town-icon { font-size: 30px; }
+        .town-text {
+            font-size: 14px; font-weight: bold;
+        }
+        .town-sub {
+            font-size: 11px; color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>App Store Screenshots A/B Mockup</h1>
+        <p>HTML/CSS Representation of Screenshot Designs. View in browser to evaluate UI balance and copy.</p>
+    </div>
+
+    <div class="grid">
+        <!-- Pattern A Column -->
+        <div class="variant-col">
+            <div class="variant-title">パターンA: 安心・環境訴求</div>
+            
+            <!-- Slide 1 A -->
+            <div class="screenshot s1-a">
+                <div class="copy-area">
+                    <div class="copy-title">完全広告なし！<br>安心の知育アプリ</div>
+                    <div class="copy-subtitle">余計な動画やバナーはゼロ。<br>ことばだけに集中できる3分間。</div>
+                </div>
+                
+                <div class="trust-badge ad-free">🛡️ 広告なし</div>
+                
+                <div class="ui-mockup">
+                    <div class="mock-nav">
+                        <div class="mock-nav-btn"></div>
+                        <div class="mock-progress"><div class="mock-progress-bar"></div></div>
+                        <div class="mock-nav-btn"></div>
+                    </div>
+                    <div class="mock-card" style="background:var(--bg-pastel-blue);">
+                        <div class="mock-emoji bear">🐻</div>
+                        <div class="mock-word-en">bear</div>
+                        <div class="mock-word-ja">くま</div>
+                    </div>
+                </div>
+                <div class="shield-graphic">🛡️</div>
+            </div>
+
+            <!-- Slide 2 A -->
+            <div class="screenshot s2-a">
+                <div class="copy-area">
+                    <div class="copy-title">スマホを渡しても、<br>罪悪感なし。</div>
+                    <div class="copy-subtitle">オフラインでも遊べるから、<br>お出かけ中の待ち時間にもピッタリ。</div>
+                </div>
+
+                <div class="trust-badge offline">✈️ オフラインOK</div>
+
+                <div class="ui-mockup">
+                    <div class="mock-nav" style="background:#f9f9f9; padding:15px; border-bottom:none;">
+                        <span style="font-weight:bold; font-size:14px;">保護者の方へ</span>
+                    </div>
+                    <div style="padding:20px;">
+                        <div style="background:#fce8e8; padding:15px; border-radius:12px; margin-bottom:15px;">
+                            <span style="font-size:18px; font-weight:bold; color:#8A1E3C;">✓ 安心設計</span>
+                            <ul style="margin:5px 0 0 0; padding-left:20px; font-size:12px; color:#555; line-height:1.6;">
+                                <li>関係ない動画への誘導なし</li>
+                                <li>個人情報の取得なし</li>
+                                <li>課金は1回買い切りのみ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="shield-graphic" style="font-size:120px; opacity:0.05; right:-30px; bottom:20px;">🔒</div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Pattern B Column -->
+        <div class="variant-col">
+            <div class="variant-title">パターンB: 学習効果・習慣訴求</div>
+            
+            <!-- Slide 1 B -->
+            <div class="screenshot s1-b">
+                <div class="copy-area">
+                    <div class="copy-title">絵で覚えるから、<br>記憶にのこる。</div>
+                    <div class="copy-subtitle">毎日3分からのマイクロ学習で、<br>無理なくえいご習慣が身につく。</div>
+                </div>
+                
+                <div class="ui-mockup">
+                    <div class="mock-nav">
+                        <div class="mock-nav-btn"></div>
+                        <span style="font-size:12px; font-weight:bold; color:#8A641E;">あと 3 まい</span>
+                        <div class="mock-nav-btn"></div>
+                    </div>
+                    <div class="mock-card" style="background:var(--bg-pastel-yellow);">
+                        <div class="mock-emoji">🐥</div>
+                        <div class="mock-word-en">chick</div>
+                        <div class="mock-word-ja">ひよこ</div>
+                    </div>
+                    <div class="mock-ratings">
+                        <div class="mock-btn-rating mock-btn-orange">むずかしい</div>
+                        <div class="mock-btn-rating mock-btn-green">かんぺき！</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 B -->
+            <div class="screenshot s2-b">
+                <div class="copy-area">
+                    <div class="copy-title">1日たった3分。<br>だから続く。</div>
+                    <div class="copy-subtitle">週末の1時間より、毎日の3分。<br>こまめな接触が言葉の定着の鍵です。</div>
+                </div>
+
+                <div class="ui-mockup">
+                    <div class="mock-town">
+                        
+                        <div style="text-align:center; font-size:50px; margin-bottom:20px; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));">
+                            🏠🌳🥐
+                        </div>
+                        
+                        <div class="town-level">
+                            <div class="town-icon">✨</div>
+                            <div>
+                                <div class="town-text">パン屋さんレベルに成長！</div>
+                                <div class="town-sub">12セッション完了 / 毎日えらいね！</div>
+                            </div>
+                        </div>
+
+                        <div style="background:#f5f5f5; border-radius:12px; padding:15px; text-align:center;">
+                            <div style="font-size:12px; color:#666; margin-bottom:8px;">今日の振り返り</div>
+                            <div style="display:flex; justify-content:center; gap:20px;">
+                                <div>
+                                    <span style="font-size:20px; font-weight:bold;">15</span><br>
+                                    <span style="font-size:10px;">学習した言葉</span>
+                                </div>
+                                <div>
+                                    <span style="font-size:20px; font-weight:bold; color:#4CAF50;">12</span><br>
+                                    <span style="font-size:10px;">かんぺき！</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

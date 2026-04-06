@@ -1,0 +1,13 @@
+﻿# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Build outputs
+build/
+DerivedData/
+
+# Temp
+*.tmp
+*.log
+.gstack/
+.claude/

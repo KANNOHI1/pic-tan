@@ -1,0 +1,12 @@
+[
+  {"id":"color_red","word_en":"red","word_ja":"red","theme":"colors","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🔴","pictogram_prompt":"felt doll style red circle, warm diorama background"},
+  {"id":"color_blue","word_en":"blue","word_ja":"blue","theme":"colors","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🔵","pictogram_prompt":"felt doll style blue circle, warm diorama background"},
+  {"id":"color_yellow","word_en":"yellow","word_ja":"yellow","theme":"colors","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🟡","pictogram_prompt":"felt doll style yellow circle, warm diorama background"},
+  {"id":"color_green","word_en":"green","word_ja":"green","theme":"colors","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🟢","pictogram_prompt":"felt doll style green circle, warm diorama background"},
+  {"id":"color_orange","word_en":"orange","word_ja":"orange","theme":"colors","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🟠","pictogram_prompt":"felt doll style orange circle, warm diorama background"},
+  {"id":"color_purple","word_en":"purple","word_ja":"purple","theme":"colors","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🟣","pictogram_prompt":"felt doll style purple circle, warm diorama background"},
+  {"id":"color_pink","word_en":"pink","word_ja":"pink","theme":"colors","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🩷","pictogram_prompt":"felt doll style pink heart, warm diorama background"},
+  {"id":"color_white","word_en":"white","word_ja":"white","theme":"colors","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"⬜","pictogram_prompt":"felt doll style white square, warm diorama background"},
+  {"id":"color_black","word_en":"black","word_ja":"black","theme":"colors","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"⬛","pictogram_prompt":"felt doll style black square, warm diorama background"},
+  {"id":"color_brown","word_en":"brown","word_ja":"brown","theme":"colors","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🟫","pictogram_prompt":"felt doll style brown square, warm diorama background"}
+]

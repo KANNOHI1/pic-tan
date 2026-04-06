@@ -137,13 +137,27 @@ localStorage.setItem('pictan_streak_date', '2026-03-19')
 
 ## 5. パートナーキャラクター
 
-| キャラ | 名前 | 性格 | 話し方 | 得意 | 動き |
-|---|---|---|---|---|---|
-| 🐰 ウサギ | ルル | はずかしがりや・実はおしゃべり | 「〜だもん」「〜なんだよね」 | お花畑・庭づくり | ぴょんぴょん |
-| 🐱 ネコ | チャイ | クール・実は寂しがりや | 「〜にゃ」「まあ、いいけど」 | 看板・かざりつけ | しなやかに歩く |
-| 🐶 イヌ | ポチ | 元気・すぐ友達になる | 「〜だよ！」「やったー！」 | 住民を呼ぶ・橋 | しっぽふりふり |
-| 🐧 ペンギン | ペペ | まじめ・おっちょこちょい | 「〜であります」 | 港・水辺 | よちよち歩く |
-| 🐦 トリ | ソラ | 自由奔放・秘密を知ってる | 「〜さ〜」「みてみて〜！」 | 見晴らし台・風車 | **飛んで移動** |
+| キャラ | 名前 | 性格 | 話し方 | 得意 | 動き | 固有アイテム | カラー |
+|---|---|---|---|---|---|---|---|
+| 🐰 ウサギ | ルル | はずかしがりや・実はおしゃべり | 「〜だもん」「〜なんだよね」 | お花畑・庭づくり | ぴょんぴょん | 花リボン（頭） | `#FF8FAB` コーラルピンク |
+| 🐱 ネコ | チャイ | クール・実は寂しがりや | 「〜にゃ」「まあ、いいけど」 | 看板・かざりつけ | しなやかに歩く | 首輪 | `#3D3227` チャコール |
+| 🐶 イヌ | ポチ | 元気・すぐ友達になる | 「〜だよ！」「やったー！」 | 住民を呼ぶ・橋 | しっぽふりふり | 首輪 | `#E8835A` テラコッタ |
+| 🐧 ペンギン | ペペ | まじめ・おっちょこちょい | 「〜であります」 | 港・水辺 | よちよち歩く | 蝶ネクタイ | `#FFD166` サニーイエロー |
+| 🐦 トリ | ソラ | 自由奔放・秘密を知ってる | 「〜さ〜」「みてみて〜！」 | 見晴らし台・風車 | **飛んで移動** | 星バッジ | `#A8D5A2` グリーン |
+
+### ビジュアルスタイル
+- スタイル: ニードルフェルト3D人形（毛並み質感・ビーズ目・ぽってり体型）
+- 画像スペック: 1024×1024 PNG、plain pastel background
+- 実装: 本番画像はGemini生成、暫定は絵文字で代替
+
+### Gemini発注プロンプト（subject部分）
+| キャラ | プロンプト |
+|---|---|
+| ルル | `a small cream-colored rabbit with a coral pink flower ribbon on her head, needle felt doll style` |
+| チャイ | `a gray calico cat wearing a charcoal collar, needle felt doll style` |
+| ポチ | `a cream and brown puppy wearing a terracotta collar, needle felt doll style` |
+| ペペ | `a black and white penguin wearing a sunny yellow bow tie, needle felt doll style` |
+| ソラ | `a light blue and cream bird wearing a small soft green star badge, needle felt doll style` |
 
 ---
 

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ピクたん</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- ── 画面1: パートナー選択（初回のみ） ── -->
+  <main id="partnerScreen" class="screen" hidden aria-label="パートナーを選ぼう">
+    <div class="partner-header">
+      <h1 class="partner-title">なかよしパートナーを<br>えらんでね！</h1>
+    </div>
+
+    <div class="partner-scroll-area">
+      <div class="partner-list" id="partnerList" role="listbox" aria-label="パートナー選択"></div>
+    </div>
+
+    <div class="partner-bubble-wrap" id="partnerBubbleWrap" hidden>
+      <div class="partner-bubble" id="partnerBubble"></div>
+    </div>
+
+    <div class="partner-footer">
+      <button id="partnerDecideBtn" class="btn-primary" disabled type="button">けってい！</button>
+    </div>
+  </main>
+
+
+  <!-- ── 画面2: ホーム（まちの全景） ── -->
+  <main id="homeScreen" class="screen" hidden aria-label="ホーム">
+
+    <button id="parentBtn" class="parent-btn" aria-label="保護者の方へ" type="button">👨‍👩‍👧</button>
+
+    <div class="town-view" id="townView">
+      <img id="townImage" class="town-img" src="" alt="まちのようす">
+      <div class="partner-in-town" id="partnerInTown"></div>
+    </div>
+
+    <div class="home-overlay">
+      <div class="home-bubble-wrap">
+        <div class="home-bubble" id="homeBubble"></div>
+      </div>
+
+      <div class="home-footer">
+        <div class="streak-wrap" id="streakWrap" hidden>
+          <span class="streak-badge" id="streakBadge"></span>
+        </div>
+        <button id="goBtn" class="btn-go" type="button">いく！</button>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ── 画面3: カード学習 ── -->
+  <main id="playScreen" class="screen" hidden aria-label="カード学習">
+
+    <div class="play-progress" id="playProgress" role="progressbar" aria-label="進捗"></div>
+
+    <div id="studyCard" class="study-card" role="button" tabindex="0" aria-label="カードをタップ">
+      <div class="card-image-wrap" id="cardImageWrap"></div>
+      <div class="card-word-en" id="cardWordEn" hidden></div>
+      <div class="card-word-ja" id="cardWordJa" hidden></div>
+    </div>
+
+    <p class="tap-hint" id="tapHint">タップしてね 👆</p>
+
+    <div class="rating-wrap" id="ratingWrap" hidden role="group" aria-label="どうだった？">
+      <button data-rating="knew" class="btn-rating btn-knew" type="button">
+        しってた！ 😊
+      </button>
+      <button data-rating="hard" class="btn-rating btn-hard" type="button">
+        むずかしい 😵
+      </button>
+    </div>
+
+  </main>
+
+
+  <!-- ── 画面4: 完了 ── -->
+  <main id="completeScreen" class="screen" hidden aria-label="きょうのぶんおわり">
+    <div class="celebration-container"></div>
+
+    <div class="complete-anim" id="completeAnim">
+      <span class="complete-partner" id="completePartner"></span>
+      <span class="complete-heart">♡</span>
+      <span class="complete-animal" id="completeAnimal"></span>
+    </div>
+
+    <p class="complete-msg" id="completeMsg"></p>
+
+    <div class="friendship-meter" id="friendshipMeter" aria-label="なかよし度"></div>
+
+    <div class="move-in-notice" id="moveInNotice" hidden>
+      <span class="move-in-icon">🏠</span>
+      <span class="move-in-text" id="moveInText"></span>
+    </div>
+
+    <button id="nextDayBtn" class="btn-primary" type="button">またあした！</button>
+
+  </main>
+
+
+  <!-- ── オーバーレイ: 保護者パネル ── -->
+  <div id="parentPanel" class="parent-overlay" hidden role="dialog" aria-label="保護者の方へ" aria-modal="true">
+    <div class="parent-sheet">
+      <button id="parentCloseBtn" class="parent-close" aria-label="とじる" type="button">✕</button>
+      <h2 class="parent-sheet-title">保護者の方へ</h2>
+
+      <section class="parent-section">
+        <h3 class="parent-section-title">📝 今日れんしゅうしたことば</h3>
+        <div id="todayWords" class="today-words"></div>
+      </section>
+
+      <section class="parent-section">
+        <h3 class="parent-section-title">🔁 つぎのふくしゅう予定</h3>
+        <p class="parent-note">忘れかけているころにまた練習します（エビングハウス忘却曲線）</p>
+        <div id="reviewSchedule" class="review-schedule"></div>
+      </section>
+
+      <section class="parent-section">
+        <h3 class="parent-section-title">🏘️ まちのじゅうみん</h3>
+        <div id="residentList" class="resident-list"></div>
+      </section>
+
+      <section class="parent-section safety-section">
+        <div class="safety-badges">
+          <span class="safety-badge">✅ 広告なし</span>
+          <span class="safety-badge">✅ オフライン</span>
+          <span class="safety-badge">✅ 個人情報なし</span>
+        </div>
+      </section>
+    </div>
+    <div class="parent-backdrop" id="parentBackdrop"></div>
+  </div>
+
+
+  <script src="./uiState.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

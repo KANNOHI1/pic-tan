@@ -1,0 +1,14 @@
+[
+  {"id":"fruit_apple","word_en":"apple","word_ja":"apple","theme":"fruits","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🍎","pictogram_prompt":"felt doll style apple, warm diorama background"},
+  {"id":"fruit_banana","word_en":"banana","word_ja":"banana","theme":"fruits","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🍌","pictogram_prompt":"felt doll style banana, warm diorama background"},
+  {"id":"fruit_grape","word_en":"grape","word_ja":"grape","theme":"fruits","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🍇","pictogram_prompt":"felt doll style grapes, warm diorama background"},
+  {"id":"fruit_strawberry","word_en":"strawberry","word_ja":"strawberry","theme":"fruits","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🍓","pictogram_prompt":"felt doll style strawberry, warm diorama background"},
+  {"id":"fruit_orange","word_en":"orange","word_ja":"orange","theme":"fruits","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🍊","pictogram_prompt":"felt doll style orange, warm diorama background"},
+  {"id":"fruit_watermelon","word_en":"watermelon","word_ja":"watermelon","theme":"fruits","difficulty":1,"ageBand":"Easy","promptType":"image","emoji":"🍉","pictogram_prompt":"felt doll style watermelon, warm diorama background"},
+  {"id":"fruit_peach","word_en":"peach","word_ja":"peach","theme":"fruits","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🍑","pictogram_prompt":"felt doll style peach, warm diorama background"},
+  {"id":"fruit_cherry","word_en":"cherry","word_ja":"cherry","theme":"fruits","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🍒","pictogram_prompt":"felt doll style cherry, warm diorama background"},
+  {"id":"fruit_melon","word_en":"melon","word_ja":"melon","theme":"fruits","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🍈","pictogram_prompt":"felt doll style melon, warm diorama background"},
+  {"id":"fruit_pear","word_en":"pear","word_ja":"pear","theme":"fruits","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🍐","pictogram_prompt":"felt doll style pear, warm diorama background"},
+  {"id":"fruit_lemon","word_en":"lemon","word_ja":"lemon","theme":"fruits","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🍋","pictogram_prompt":"felt doll style lemon, warm diorama background"},
+  {"id":"fruit_pineapple","word_en":"pineapple","word_ja":"pineapple","theme":"fruits","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🍍","pictogram_prompt":"felt doll style pineapple, warm diorama background"}
+]

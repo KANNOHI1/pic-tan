@@ -1,0 +1,9 @@
+[
+  {"id":"flag_g7_us","word_en":"United States","word_ja":"アメリカ","country_en":"United States","country_ja":"アメリカ","capital_en":"Washington, D.C.","capital_ja":"ワシントンD.C.","theme":"g7_flags","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🇺🇸","pictogram_prompt":"flag of the United States"},
+  {"id":"flag_g7_gb","word_en":"United Kingdom","word_ja":"イギリス","country_en":"United Kingdom","country_ja":"イギリス","capital_en":"London","capital_ja":"ロンドン","theme":"g7_flags","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🇬🇧","pictogram_prompt":"flag of the United Kingdom"},
+  {"id":"flag_g7_fr","word_en":"France","word_ja":"フランス","country_en":"France","country_ja":"フランス","capital_en":"Paris","capital_ja":"パリ","theme":"g7_flags","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🇫🇷","pictogram_prompt":"flag of France"},
+  {"id":"flag_g7_de","word_en":"Germany","word_ja":"ドイツ","country_en":"Germany","country_ja":"ドイツ","capital_en":"Berlin","capital_ja":"ベルリン","theme":"g7_flags","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🇩🇪","pictogram_prompt":"flag of Germany"},
+  {"id":"flag_g7_it","word_en":"Italy","word_ja":"イタリア","country_en":"Italy","country_ja":"イタリア","capital_en":"Rome","capital_ja":"ローマ","theme":"g7_flags","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🇮🇹","pictogram_prompt":"flag of Italy"},
+  {"id":"flag_g7_jp","word_en":"Japan","word_ja":"日本","country_en":"Japan","country_ja":"日本","capital_en":"Tokyo","capital_ja":"東京","theme":"g7_flags","difficulty":1,"ageBand":"Core","promptType":"image","emoji":"🇯🇵","pictogram_prompt":"flag of Japan"},
+  {"id":"flag_g7_ca","word_en":"Canada","word_ja":"カナダ","country_en":"Canada","country_ja":"カナダ","capital_en":"Ottawa","capital_ja":"オタワ","theme":"g7_flags","difficulty":2,"ageBand":"Core","promptType":"image","emoji":"🇨🇦","pictogram_prompt":"flag of Canada"}
+]
