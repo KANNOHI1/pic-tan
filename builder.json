@@ -1,0 +1,17 @@
+{
+  "project": "Pic-tan",
+  "platform": "ios",
+  "github": {
+    "owner": "KANNOHI1",
+    "repo": "pic-tan"
+  },
+  "ios": {
+    "path": ".",
+    "scheme": "",
+    "signing": false
+  },
+  "mobai": {
+    "url": "http://localhost:8686",
+    "device_id": ""
+  }
+}
