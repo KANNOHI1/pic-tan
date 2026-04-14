@@ -7,7 +7,7 @@
   },
   "ios": {
     "path": "apps/ios",
-    "scheme": "",
+    "scheme": "PicTan",
     "signing": false
   },
   "mobai": {
